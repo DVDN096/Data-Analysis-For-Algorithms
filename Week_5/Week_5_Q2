@@ -11,7 +11,6 @@ int main() {
     int arr[n];
     for(int i=0;i<n;i++){
         cin >> arr[i];
-        mp[arr[i]] = i; 
     }
     int flag=0;
     for(int i=0;i<n;i++){
@@ -23,7 +22,7 @@ int main() {
             mp[arr[i]]=i;
         }
     }
-    if(flag){
+    if(!flag){
         cout<<"Not present";
     }
     return 0;

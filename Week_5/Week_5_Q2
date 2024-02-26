@@ -17,13 +17,13 @@ int main() {
     for(int i=0;i<n;i++){
         if(mp.find(k - arr[i]) != mp.end() && mp[k - arr[i]] != i) {
             cout<< i << " - " << mp[k - arr[i]] << endl;
+            flag=1;
         }
         else{
             mp[arr[i]]=i;
         }
-        flag++;
     }
-    if(flag==n){
+    if(flag){
         cout<<"Not present";
     }
     return 0;

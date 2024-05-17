@@ -1,0 +1,31 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int lcs(const string& x, const string& y){
+    int m = x.size();
+    int n = y.size();
+    vector<vector<int>> sol(m+1, vector<int>(n+1, 0)); 
+
+    for(int i = 1; i <= m; i++){ 
+        for(int j = 1; j <= n; j++){ 
+            if(x[i-1] == y[j-1])
+                sol[i][j] = sol[i-1][j-1] + 1;
+            else
+                sol[i][j] = max(sol[i-1][j], sol[i][j-1]);
+        }
+    }
+    return sol[m][n]; 
+}
+
+int main()
+{
+    string x, y;
+    cout << "Enter strings" << endl;
+    cin >> x >> y;
+
+    int result = lcs(x, y);
+    cout << "Length of Longest Common Subsequence: " << result << endl;
+
+    return 0;
+}
